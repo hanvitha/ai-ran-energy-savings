@@ -5,11 +5,12 @@ FROM registry.redhat.io/ubi8/python-312:latest
 USER root
 WORKDIR /backend
 
-
 COPY . .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt \
+    && chmod 775 /backend
 
 #ENV MODEL_URL="instructlab-deployment.ilab.svc.cluster.local/v1"
 
