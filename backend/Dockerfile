@@ -7,7 +7,6 @@ WORKDIR /backend
 
 
 COPY . .
-RUN chmod +w kepler_data.csv
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
