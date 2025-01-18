@@ -3,10 +3,18 @@
 
 #Use minimal node.js image
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
-# Set the working directory in the container 
-USER root
-WORKDIR /frontend
+# Create a non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
 
+# Set permissions for the directory
+RUN mkdir -p /frontend/node_modules/.cache && \
+    chown -R appuser:appuser /frontend/node_modules
+
+# Switch to the non-root user
+USER appuser
+
+# Set the working directory
+WORKDIR /frontend
 # Copy the application code 
 COPY . . 
 
