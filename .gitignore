@@ -1,0 +1,9 @@
+.venv/*
+.DS_Store
+lib/*
+backend/.env
+backend/data.npy
+backend/__pycache__/*
+backend/kepler_data.csv
+backend/langchain_kepler_processing.ipynb
+

@@ -1,0 +1,27 @@
+# Created with podman-5.2.2
+# Author rhaddad@redhat.com
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: ilab
+  labels:
+    kubernetes.io/metadata.name: ilab
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: instructlab-pod
+  name: instructlab-pod
+  namespace: ilab
+spec:
+  containers:
+  - command:
+    - ilab
+    - model
+    - serve
+    image: localhost/instructlab:latest
+    name: instructlab
+    ports:
+    - containerPort: 8000
+      hostPort: 8000

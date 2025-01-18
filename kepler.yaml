@@ -1,0 +1,15 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/power-monitoring-operator.openshift-operators: ''
+  name: power-monitoring-operator
+  namespace: openshift-operators
+spec:
+  channel: tech-preview
+  installPlanApproval: Automatic
+  name: power-monitoring-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: power-monitoring-operator.v0.3.0

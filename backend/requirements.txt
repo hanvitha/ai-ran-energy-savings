@@ -1,0 +1,12 @@
+uvicorn
+transformers
+python-dotenv
+prometheus_api_client
+langchain_community
+langchain_openai
+langchain_experimental
+fastapi
+numpy
+torch
+matplotlib
+scikit-learn

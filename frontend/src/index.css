@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(213, 213, 213);
+  
+  padding: 0; /* Remove default paddings */
+  height: 100vh; /* Ensure it covers the full viewport height */
+  background-image: url('https://img.freepik.com/premium-vector/global-network-connections-with-points-lines-wireframe-background-abstract-connection-structure-polygonal-space-background_230610-123.jpg?semt=ais_hybrid'); /* Replace with your image path */
+  background-size: cover; /* Make the image cover the whole area */
+  background-repeat: repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+div {
+  padding: 2%;;
+}
