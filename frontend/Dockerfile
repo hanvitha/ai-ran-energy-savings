@@ -7,9 +7,6 @@ FROM registry.redhat.io/ubi8/nodejs-20-minimal
 USER root
 WORKDIR /frontend
 
-RUN mkdir -p /frontend/node_modules/.cache && \
-    chown -R 755 /frontend/node_modules/.cache
-
 # Copy the application code 
 COPY . . 
 
