@@ -92,6 +92,8 @@ Enable Route --> this will be out endpoint for the whole app.
 
 3.
 From Developer Catalog, Deploy /frontend from Dockerfile - regular deployment
+Add Env variable for Backend service url: REACT_APP_BACKEND_URL = http://backend.test.svc.cluster.local:8000
+
 
 Once all 3 deployments are up, #2 route is the app endpoint.
 Click on Refresh Kepler Data to view Kepler data.
