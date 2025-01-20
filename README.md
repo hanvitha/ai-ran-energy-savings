@@ -5,7 +5,7 @@
 <br/>
 
 ## Description
-AI Energy Savings for RAN / Kepler Bot -> Helps Telco Admins to analyze Energy consumption patterns in their RAN Distributed Units (DU) in order to determine cost saving measures like shutting down specific nodes based on low traffic pattern predictions.
+AI Energy Savings for RAN / Kepler Bot -> helps telco admins to analyze energy consumption patterns in their RAN Distributed Units (DU) in order to determine cost saving measures like shutting down specific nodes based on low traffic pattern predictions.
 
 Model Used is : Granite 3 8B model through MaaS hosted on Red Hat Openshift AI
 
