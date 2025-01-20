@@ -104,5 +104,8 @@ Click on Refresh Kepler Data to view Kepler data.
 3. Can you suggest a node shut down schedule based on previous 2 days energy consumption?
 
 
-
+Please reach out if you have feedback/questions! Happy to help. 
+Contacts of Authors:
+Hanvitha Gavini - https://www.linkedin.com/in/hanvitha/
+Rony Haddad - https://www.linkedin.com/in/rony-haddad-192b699
 
