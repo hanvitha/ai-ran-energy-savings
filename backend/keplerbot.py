@@ -76,7 +76,7 @@ def generate_response(user_input, metrics, predictions, predictive_model):
 
         )
         input_data = {"metrics": metrics, "user_input": user_input}
-        print("im in metrics")
+        
         metrics_chain = metrics_prompt_template | llm
         response = metrics_chain.invoke(input_data)
     

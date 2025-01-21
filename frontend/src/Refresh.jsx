@@ -33,7 +33,7 @@ function Refresh() {
                 <tr>
                     <th>Time Stamp</th>
                     <th>Node Instance</th>
-                    <th>Value in kWH</th>
+                    <th>Power Consumption in kWh</th>
                 </tr>
                 </thead>
                 <tbody>
