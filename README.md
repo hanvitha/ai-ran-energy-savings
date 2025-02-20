@@ -1,4 +1,4 @@
-# AI Odyssey 2025 demo-project - AI Energy Savings for RAN DUs
+# AI Energy Savings for RAN DUs
 <div align="center">
 <img src="./architecture_diagram.png" >
 </div>
