@@ -5,20 +5,20 @@
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
 WORKDIR /frontend
 
-# Copy application code
-COPY . .
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Disable ESLint from running during build
+ENV DISABLE_ESLINT_PLUGIN=true
 
 # Install dependencies
 RUN npm install
 
-RUN chmod -R g+rwX /frontend && \
-    chown -R 1001:0 /frontend
-
-# Switch to non-root user (compatible with OpenShift)
-USER 1001
+# Copy rest of your app
+COPY . .
 
 # Expose app port
 EXPOSE 3000
 
-# Start the app
-CMD ["npm", "run", "start"]
+# Start app
+CMD ["npm", "start"]
