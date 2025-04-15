@@ -5,22 +5,16 @@
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
 WORKDIR /frontend
 
-# Copy package files first for better caching
+# Copy package files and install dependencies
 COPY package*.json ./
+RUN npm install
 
-# Install dependencies in a writable temp dir
-RUN npm config set cache /tmp/npm-cache --global && \
-    npm install
-
-# Copy rest of your app
+# Copy app code
 COPY . .
 
-# Expose app port
-EXPOSE 3000
-
-# Disable ESLint from running during build
+# Disable eslint so it doesn't try to write to .cache
 ENV DISABLE_ESLINT_PLUGIN=true
 
+EXPOSE 3000
 
-# Start app
 CMD ["npm", "start"]
