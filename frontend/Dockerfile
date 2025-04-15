@@ -8,17 +8,19 @@ WORKDIR /frontend
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Disable ESLint from running during build
-ENV DISABLE_ESLINT_PLUGIN=true
-
-# Install dependencies
-RUN npm install
+# Install dependencies in a writable temp dir
+RUN npm config set cache /tmp/npm-cache --global && \
+    npm install
 
 # Copy rest of your app
 COPY . .
 
 # Expose app port
 EXPOSE 3000
+
+# Disable ESLint from running during build
+ENV DISABLE_ESLINT_PLUGIN=true
+
 
 # Start app
 CMD ["npm", "start"]
