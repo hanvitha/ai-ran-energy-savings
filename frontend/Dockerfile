@@ -3,17 +3,23 @@
 
 #Use minimal node.js image
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
-# Set the working directory in the container 
-USER root
 WORKDIR /frontend
 
-# Copy the application code 
-COPY . . 
+# Copy application code
+COPY . .
 
-#run front end
+# Install dependencies
 RUN npm install
 
-# Expose the port your application listens on (if necessary) 
-EXPOSE 3000 
-# Command to run the application when the container starts 
+RUN mkdir -p /frontend/node_modules/.cache && \
+    chmod -R 777 /frontend/node_modules && \
+    chown -R 1001:0 /frontend
+
+# Set OpenShift-friendly user
+USER 1001
+
+# Expose app port
+EXPOSE 3000
+
+# Start the app
 CMD ["npm", "run", "start"]
