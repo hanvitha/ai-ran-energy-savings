@@ -11,11 +11,10 @@ COPY . .
 # Install dependencies
 RUN npm install
 
-RUN mkdir -p /frontend/node_modules/.cache && \
-    chmod -R 777 /frontend/node_modules && \
+RUN chmod -R g+rwX /frontend && \
     chown -R 1001:0 /frontend
 
-# Set OpenShift-friendly user
+# Switch to non-root user (compatible with OpenShift)
 USER 1001
 
 # Expose app port
