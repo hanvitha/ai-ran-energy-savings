@@ -8,7 +8,6 @@ WORKDIR /frontend
 # Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
-# RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 
 # Copy app code
 COPY . .
