@@ -3,22 +3,27 @@
 
 #Use minimal node.js image
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
-# Create app directory and set ownership
+
+# Create and set working directory
 WORKDIR /frontend
+
+# Copy package files first
 COPY package*.json ./
 
-# Ensure correct permissions
-RUN mkdir -p /frontend/node_modules && chown -R node:node /frontend
+# Create node_modules as root and fix permissions
+RUN mkdir -p /frontend/node_modules \
+    && chown -R node:node /frontend
 
-# Switch to non-root user
+# Switch to the non-root node user
 USER node
 
 # Install dependencies
 RUN npm install
 
-# Copy rest of the app
+# Copy the rest of the app with proper ownership
 COPY --chown=node:node . .
 
+# Environment variable to disable ESLint cache writes
 ENV DISABLE_ESLINT_PLUGIN=true
 
 EXPOSE 3000
