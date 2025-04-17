@@ -1,30 +1,16 @@
-# Use a lightweight Python image as the base 
-#FROM python:3.11-slim-buster
-
 #Use minimal node.js image
 FROM registry.redhat.io/ubi8/nodejs-20-minimal
-
-# Create and set working directory
+# Set the working directory in the container 
+USER root
 WORKDIR /frontend
 
-# Copy package files first
-COPY package*.json ./
+# Copy the application code 
+COPY . . 
 
-# Create node_modules as root and fix permissions
-RUN mkdir -p /frontend/node_modules \
-    && chown -R node:node /frontend
-
-# Switch to the non-root node user
-USER node
-
-# Install dependencies
+#run front end
 RUN npm install
 
-# Copy the rest of the app with proper ownership
-COPY --chown=node:node . .
-
-# Environment variable to disable ESLint cache writes
-ENV DISABLE_ESLINT_PLUGIN=true
-
-EXPOSE 3000
-CMD ["npm", "start"]
+# Expose the port your application listens on (if necessary) 
+EXPOSE 3000 
+# Command to run the application when the container starts 
+CMD ["npm", "run", "start"]
