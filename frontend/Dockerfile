@@ -4,11 +4,13 @@ FROM registry.redhat.io/ubi8/nodejs-20-minimal
 USER root
 WORKDIR /frontend
 
-# Copy the application code 
-COPY . . 
-
-#run front end
+COPY package.json .
 RUN npm install
+
+RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
+
+# Copy the application code
+COPY . .
 
 # Expose the port your application listens on (if necessary) 
 EXPOSE 3000 
