@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1 className="demoproject">AI-driven Energy Savings for RAN </h1>
+      <h1 className="demoproject"> Kepler Chatbot </h1>
       <Chatbot />
       <Refresh />
     </div>
